@@ -4,29 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#4A4848"
     tools:context=".Leagues">
 
     <TextView
         android:id="@+id/leaguesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="9dp"
         android:fontFamily="@font/alfa_slab_one"
         android:text="LEAGUES"
         android:textAlignment="center"
         android:textColor="@color/primary_dark"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/leagueCard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <GridView
         android:id="@+id/leagueCard"
-        android:layout_width="413dp"
-        android:layout_height="563dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipChildren="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/leaguesText">
+
+    </GridView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

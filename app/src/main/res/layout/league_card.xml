@@ -1,34 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="22dp"
+    android:layout_marginBottom="22dp"
+    android:background="@color/primary_dark"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/league"
-        android:layout_width="425dp"
-        android:layout_height="wrap_content"
+        android:layout_width="204dp"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/alfa_slab_one"
         android:gravity="center"
-        android:text="LeagueName" />
+        android:text="LeagueName"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/counrty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
             android:layout_weight="1"
-            android:text="CountryName" />
+            android:fontFamily="@font/alfa_slab_one"
+            android:gravity="center"
+            android:text="CountryName"
+            android:textColor="#FFFFFF"
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/champions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="194dp"
+            android:layout_height="82dp"
             android:layout_weight="1"
-            android:text="CurrentChampions" />
+            android:fontFamily="@font/alfa_slab_one"
+            android:gravity="center"
+            android:text="CurrentChampions"
+            android:textColor="#FFFFFF"
+            android:textStyle="italic" />
 
     </LinearLayout>
 </LinearLayout>

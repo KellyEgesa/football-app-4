@@ -51,9 +51,9 @@ public class LeagueAdapter extends BaseAdapter {
             TextView leagueView = (TextView) gridView.findViewById(R.id.league);
             leagueView.setText((String) getItem(position));
             TextView countryView = (TextView) gridView.findViewById(R.id.counrty);
-            countryView.setText((String) getItems(position, mCountry));
+            countryView.setText((String) "Country of League: " + getItems(position, mCountry));
             TextView championsView = (TextView) gridView.findViewById(R.id.champions);
-            championsView.setText((String) getItems(position, mChampions));
+            championsView.setText((String) "Current Champions: " + getItems(position, mChampions));
         } else {
             gridView = (View) convertView;
         }
