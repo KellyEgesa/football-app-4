@@ -39,7 +39,6 @@ public class Leagues extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(Leagues.this, "League: " + leagues[position], Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Leagues.this, Table.class);
                 intent.putExtra("league", leagues[position]);
                 Toast.makeText(Leagues.this, "Showing Table of " + leagues[position], Toast.LENGTH_LONG).show();
