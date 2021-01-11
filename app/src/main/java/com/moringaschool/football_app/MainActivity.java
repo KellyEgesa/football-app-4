@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v == mGetStartedButton) {
             String user = mUserName.getText().toString();
-            if(user!=null){
+            if(!user.equals("")){
                 Intent intent = new Intent(MainActivity.this, Leagues.class);
                 startActivity(intent);
                 Toast.makeText(MainActivity.this, "Welcome: "+user, Toast.LENGTH_LONG).show();

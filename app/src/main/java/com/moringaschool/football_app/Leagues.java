@@ -3,6 +3,7 @@ package com.moringaschool.football_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +28,10 @@ public class Leagues extends AppCompatActivity{
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Toast.makeText(Leagues.this, "League: " + leagues[position], Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Leagues.this, Table.class);
+                intent.putExtra(leagues[position], "league");
+                startActivity(intent);
             }
         });
     }
