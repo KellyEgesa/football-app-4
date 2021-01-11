@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String user = mUserName.getText().toString();
             if(!user.equals("")){
                 Intent intent = new Intent(MainActivity.this, Leagues.class);
+                intent.putExtra("username", user);
                 startActivity(intent);
                 Toast.makeText(MainActivity.this, "Welcome: "+user, Toast.LENGTH_LONG).show();
             }else{

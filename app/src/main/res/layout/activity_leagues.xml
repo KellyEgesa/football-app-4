@@ -38,12 +38,16 @@
     </GridView>
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="133dp"
-        android:layout_height="38dp"
+        android:id="@+id/user"
+        android:layout_width="157dp"
+        android:layout_height="34dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
+        android:text="USERNAME"
+        android:textColor="@color/accent"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
