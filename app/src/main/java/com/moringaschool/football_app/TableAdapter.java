@@ -23,7 +23,7 @@ public class TableAdapter extends ArrayAdapter {
         String team = mLeagueTable[position];
         String teamGamesPlayed = mLeagueTableDetailsPlayed[position];
         String teamPoints = mLeagueTableDetailsPoints[position];
-        return String.format("%d. %s GamesPlayed: %s Points: %s", position+1, team, teamGamesPlayed, teamPoints);
+        return String.format("%d. %s | GamesPlayed: %s Points: %s", position+1, team, teamGamesPlayed, teamPoints);
     }
 
     @Override
