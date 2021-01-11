@@ -11,10 +11,10 @@
         android:theme="@style/Theme.Footballapp">
         <activity android:name=".Table"></activity>
         <activity android:name=".Leagues" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
