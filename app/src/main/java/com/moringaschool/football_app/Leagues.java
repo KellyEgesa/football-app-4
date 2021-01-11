@@ -31,6 +31,7 @@ public class Leagues extends AppCompatActivity{
                 Toast.makeText(Leagues.this, "League: " + leagues[position], Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Leagues.this, Table.class);
                 intent.putExtra("league",leagues[position]);
+                Toast.makeText(Leagues.this, "Showing: "+leagues[position], Toast.LENGTH_LONG).show();
                 startActivity(intent);
             }
         });
