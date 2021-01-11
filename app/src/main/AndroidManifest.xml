@@ -9,9 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Footballapp">
-        <activity android:name=".Table"></activity>
-        <activity android:name=".Leagues" />
-        <activity android:name=".MainActivity"
+        <activity android:name=".Table">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.moringaschool.football_app.Leagues"></meta-data>
+        </activity>
+        <activity android:name=".Leagues">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.moringaschool.football_app.MainActivity"></meta-data>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
