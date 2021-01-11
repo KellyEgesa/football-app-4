@@ -29,10 +29,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mGetStartedButton) {
-            Intent intent = new Intent(MainActivity.this, Leagues.class);
-            startActivity(intent);
             String user = mUserName.getText().toString();
-            Toast.makeText(MainActivity.this, "Welcome: "+user, Toast.LENGTH_LONG).show();
+            if(user!=null){
+                Intent intent = new Intent(MainActivity.this, Leagues.class);
+                startActivity(intent);
+                Toast.makeText(MainActivity.this, "Welcome: "+user, Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(MainActivity.this, "KINDLY ENTER YOUR NAME!!!", Toast.LENGTH_LONG).show();
+            }
+
         }
     }
 }

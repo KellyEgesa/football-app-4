@@ -2,10 +2,18 @@ package com.moringaschool.football_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.LinearLayout;
+import android.widget.TextClock;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class Leagues extends AppCompatActivity {
+public class Leagues extends AppCompatActivity{
     GridView gridView;
     String[] leagues = new String[]{"Premier League", "La Liga", "Seria A", "Bundesliga", "Ligue A", "Major League Soccer"};
     String[] country = new String[]{"England", "Spain", "Italy", "Germany", "France", "USA"};
@@ -16,5 +24,11 @@ public class Leagues extends AppCompatActivity {
         setContentView(R.layout.activity_leagues);
         gridView = (GridView)findViewById(R.id.leagueCard);
         gridView.setAdapter(new LeagueAdapter(this, leagues, country, champions));
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
     }
 }

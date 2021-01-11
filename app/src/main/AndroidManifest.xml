@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Footballapp">
-        <activity android:name=".Leagues"></activity>
+        <activity android:name=".Table"></activity>
+        <activity android:name=".Leagues" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

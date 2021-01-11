@@ -60,7 +60,7 @@
         android:fontFamily="@font/alfa_slab_one"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="Kindly enter your name"
+        android:hint="Kindly enter your name"
         app:layout_constraintBottom_toTopOf="@+id/getStarted"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
