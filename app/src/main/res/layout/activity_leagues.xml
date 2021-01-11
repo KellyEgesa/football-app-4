@@ -11,6 +11,7 @@
         android:id="@+id/leaguesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="9dp"
         android:fontFamily="@font/alfa_slab_one"
@@ -19,7 +20,6 @@
         android:textColor="@color/primary_dark"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/leagueCard"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,5 +36,15 @@
         app:layout_constraintTop_toBottomOf="@+id/leaguesText">
 
     </GridView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="133dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
