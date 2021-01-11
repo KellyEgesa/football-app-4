@@ -4,16 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4A4848"
+    android:background="#D3D0D0"
     tools:context=".Table">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="104dp"
-        android:layout_height="25dp"
+        android:id="@+id/tableName"
+        android:layout_width="158dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="9dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
         android:text="TABLE"
+        android:textColor="@color/primary_dark"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/listView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="410dp"
+        android:layout_height="598dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableName" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

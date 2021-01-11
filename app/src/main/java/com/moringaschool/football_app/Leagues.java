@@ -30,7 +30,7 @@ public class Leagues extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(Leagues.this, "League: " + leagues[position], Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Leagues.this, Table.class);
-                intent.putExtra(leagues[position], "league");
+                intent.putExtra("league",leagues[position]);
                 startActivity(intent);
             }
         });
