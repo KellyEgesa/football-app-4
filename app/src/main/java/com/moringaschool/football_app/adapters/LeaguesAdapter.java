@@ -73,7 +73,10 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
 
         @Override
         public void onClick(View v) {
+            int position = getLayoutPosition();
+            Toast.makeText(mContext, mLeagues.get(position).getName(), Toast.LENGTH_LONG).show();
             Intent intent = new Intent(mContext, TableActivity.class);
+            intent.putExtra("league", mLeagues.get(position));
             mContext.startActivity(intent);
         }
     }

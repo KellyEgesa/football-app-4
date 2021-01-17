@@ -10,26 +10,41 @@
     <TextView
         android:id="@+id/tableName"
         android:layout_width="158dp"
-        android:layout_height="48dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="9dp"
+        android:layout_marginBottom="4dp"
         android:fontFamily="@font/alfa_slab_one"
         android:gravity="center"
         android:text="TABLE"
         android:textColor="@color/primary_dark"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/tableRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="403dp"
-        android:layout_height="668dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tableRecyclerView"
+        android:layout_width="413dp"
+        android:layout_height="670dp"
+        android:padding="3dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableName" />
+
+    <ProgressBar
+        android:id="@+id/tableProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="110dp"
+        android:layout_height="91dp"
+        android:background="@color/primary"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
