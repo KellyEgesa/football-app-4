@@ -51,7 +51,7 @@ public class LeaguesActivity extends AppCompatActivity {
         String username = intent.getStringExtra("username");
         mUser.setText("Username: " + username);
 
-        FootBallApi client = FootBallClient.listCompetitions();
+        FootBallApi client = FootBallClient.urlRequest();
         Call<FootballDataCompetitionSearchResponse> call = client.listCompetitions("TIER_ONE");
         call.enqueue(new Callback<FootballDataCompetitionSearchResponse>() {
             @Override

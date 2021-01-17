@@ -14,7 +14,7 @@ import static com.moringaschool.football_app.Constants.FOOTBALL_BASE_URL;
 
 public class FootBallClient {
     public static Retrofit retrofit = null;
-    public static FootBallApi listCompetitions(){
+    public static FootBallApi urlRequest(){
         if(retrofit == null){
             OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
                 @Override

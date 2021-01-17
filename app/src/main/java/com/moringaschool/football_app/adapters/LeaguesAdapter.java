@@ -1,15 +1,18 @@
 package com.moringaschool.football_app.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.football_app.R;
+import com.moringaschool.football_app.TableActivity;
 import com.moringaschool.football_app.models.competition.Competition;
 
 import java.util.List;
@@ -45,7 +48,7 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
         return mLeagues.size();
     }
 
-    public class LeagueViewHolder extends RecyclerView.ViewHolder {
+    public class LeagueViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.leagueName)
         TextView mLeagueName;
         @BindView(R.id.matchDay)
@@ -58,12 +61,20 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
         public LeagueViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindLeague(Competition league) {
             mLeagueName.setText(league.getName());
             mCountryOfOrigin.setText("Country Of Origin: " + league.getArea().getName());
             mMatchDay.setText("Matchday " + league.getCurrentSeason().getCurrentMatchday());
+        }
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(mContext, TableActivity.class);
+            mContext.startActivity(intent);
         }
     }
 
