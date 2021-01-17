@@ -12,7 +12,7 @@
         <activity
             android:name=".Table"
             android:theme="@style/NoActionBarTheme"></activity>
-        <activity android:name=".Leagues">
+        <activity android:name=".LeaguesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.moringaschool.football_app.MainActivity"></meta-data>

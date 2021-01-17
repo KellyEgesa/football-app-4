@@ -5,7 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#4A4848"
-    tools:context=".Leagues">
+    tools:context=".LeaguesActivity">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="72dp"
+        android:layout_height="63dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/leaguesText"
@@ -13,29 +23,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="9dp"
         android:fontFamily="@font/alfa_slab_one"
         android:text="LEAGUES"
         android:textAlignment="center"
         android:textColor="@color/primary_dark"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/leagueCard"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <GridView
-        android:id="@+id/leagueCard"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:clipChildren="false"
-        android:horizontalSpacing="2dp"
-        android:verticalSpacing="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/leaguesText">
-
-    </GridView>
 
     <TextView
         android:id="@+id/user"
@@ -48,7 +44,19 @@
         android:text="USERNAME"
         android:textColor="@color/accent"
         android:textSize="18sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leaguesText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
