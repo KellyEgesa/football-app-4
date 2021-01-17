@@ -21,9 +21,6 @@ public class Competition {
     @SerializedName("code")
     @Expose
     private String code;
-    @SerializedName("emblemUrl")
-    @Expose
-    private Object emblemUrl;
     @SerializedName("plan")
     @Expose
     private String plan;
@@ -49,20 +46,18 @@ public class Competition {
      * @param area
      * @param lastUpdated
      * @param code
-     * @param emblemUrl
      * @param currentSeason
      * @param name
      * @param id
      * @param numberOfAvailableSeasons
      * @param plan
      */
-    public Competition(Integer id, Area area, String name, String code, Object emblemUrl, String plan, CurrentSeason currentSeason, Integer numberOfAvailableSeasons, String lastUpdated) {
+    public Competition(Integer id, Area area, String name, String code, String plan, CurrentSeason currentSeason, Integer numberOfAvailableSeasons, String lastUpdated) {
         super();
         this.id = id;
         this.area = area;
         this.name = name;
         this.code = code;
-        this.emblemUrl = emblemUrl;
         this.plan = plan;
         this.currentSeason = currentSeason;
         this.numberOfAvailableSeasons = numberOfAvailableSeasons;
@@ -99,14 +94,6 @@ public class Competition {
 
     public void setCode(String code) {
         this.code = code;
-    }
-
-    public Object getEmblemUrl() {
-        return emblemUrl;
-    }
-
-    public void setEmblemUrl(Object emblemUrl) {
-        this.emblemUrl = emblemUrl;
     }
 
     public String getPlan() {

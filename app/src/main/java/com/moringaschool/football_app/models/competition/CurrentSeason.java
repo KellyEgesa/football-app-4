@@ -21,9 +21,7 @@ public class CurrentSeason {
     @SerializedName("currentMatchday")
     @Expose
     private Integer currentMatchday;
-    @SerializedName("winner")
-    @Expose
-    private Object winner;
+
 
     /**
      * No args constructor for use in serialization
@@ -34,19 +32,17 @@ public class CurrentSeason {
 
     /**
      * 
-     * @param winner
      * @param currentMatchday
      * @param endDate
      * @param id
      * @param startDate
      */
-    public CurrentSeason(Integer id, String startDate, String endDate, Integer currentMatchday, Object winner) {
+    public CurrentSeason(Integer id, String startDate, String endDate, Integer currentMatchday) {
         super();
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.currentMatchday = currentMatchday;
-        this.winner = winner;
     }
 
     public Integer getId() {
@@ -79,14 +75,6 @@ public class CurrentSeason {
 
     public void setCurrentMatchday(Integer currentMatchday) {
         this.currentMatchday = currentMatchday;
-    }
-
-    public Object getWinner() {
-        return winner;
-    }
-
-    public void setWinner(Object winner) {
-        this.winner = winner;
     }
 
 }

@@ -18,9 +18,6 @@ public class Area {
     @SerializedName("countryCode")
     @Expose
     private String countryCode;
-    @SerializedName("ensignUrl")
-    @Expose
-    private Object ensignUrl;
 
     /**
      * No args constructor for use in serialization
@@ -31,17 +28,16 @@ public class Area {
 
     /**
      * 
-     * @param ensignUrl
      * @param countryCode
      * @param name
      * @param id
      */
-    public Area(Integer id, String name, String countryCode, Object ensignUrl) {
+    public Area(Integer id, String name, String countryCode) {
         super();
         this.id = id;
         this.name = name;
         this.countryCode = countryCode;
-        this.ensignUrl = ensignUrl;
+
     }
 
     public Integer getId() {
@@ -66,14 +62,6 @@ public class Area {
 
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
-    }
-
-    public Object getEnsignUrl() {
-        return ensignUrl;
-    }
-
-    public void setEnsignUrl(Object ensignUrl) {
-        this.ensignUrl = ensignUrl;
     }
 
 }

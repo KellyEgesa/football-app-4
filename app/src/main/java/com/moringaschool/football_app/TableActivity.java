@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.moringaschool.football_app.models.competition.Competition;
 import com.moringaschool.football_app.models.standings.FootballDataStandingSearchResponse;
@@ -55,7 +56,7 @@ public class TableActivity extends AppCompatActivity {
         mTableName.setText(mLeague.getName() + " Table");
 
         FootBallApi client = FootBallClient.urlRequest();
-        Call<FootballDataStandingSearchResponse> call = client.listTable(String.valueOf(mLeague.getId()));
+        Call<FootballDataStandingSearchResponse> call = client.listTable(Integer.toString(mLeague.getId()));
 
         call.enqueue(new Callback<FootballDataStandingSearchResponse>() {
             @Override
@@ -63,14 +64,15 @@ public class TableActivity extends AppCompatActivity {
                 hideProgressBar();
                 if (response.isSuccessful()) {
                     table = response.body().getStandings().get(0).getTable();
-                    mAdapter = new TableAdapter(TableActivity.this, table);
+                    Toast.makeText(TableActivity.this, table.get(0).getTeam().getName(), Toast.LENGTH_LONG).show();
 
+                    mAdapter = new TableAdapter(TableActivity.this, table);
                     mTableRecyclerView.setAdapter(mAdapter);
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TableActivity.this);
                     mTableRecyclerView.setLayoutManager(layoutManager);
-                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mTableRecyclerView.getContext(),
-                            ((LinearLayoutManager) layoutManager).getOrientation());
-                    mTableRecyclerView.addItemDecoration(dividerItemDecoration);
+//                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mTableRecyclerView.getContext(),
+//                            ((LinearLayoutManager) layoutManager).getOrientation());
+//                    mTableRecyclerView.addItemDecoration(dividerItemDecoration);
                     mTableRecyclerView.setHasFixedSize(true);
 
                     showRecyclerLeague();

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,8 +25,8 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
     private List<Table> mLeagueTable;
 
     public TableAdapter(Context context, List<Table> leagueTable) {
-        this.mContext = context;
-        this.mLeagueTable = leagueTable;
+        mContext = context;
+        mLeagueTable = leagueTable;
     }
 
     @NonNull
@@ -76,16 +77,16 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
         }
 
         public void bindTable(Table table) {
-            mTableNumber.setText(table.getPosition());
+            mTableNumber.setText(Integer.toString(table.getPosition()));
             mTeamName.setText(table.getTeam().getName());
-            mGamesPlayed.setText(table.getPlayedGames());
-            mWin.setText(table.getWon());
-            mDraw.setText(table.getDraw());
-            mLost.setText(table.getLost());
-            mGoalsFor.setText(table.getGoalsFor());
-            mGoalsAgainst.setText(table.getGoalsAgainst());
-            mGoalDifference.setText(table.getGoalDifference());
-            mPoints.setText(table.getPoints());
+            mGamesPlayed.setText(Integer.toString(table.getPlayedGames()));
+            mWin.setText(Integer.toString( table.getWon()));
+            mDraw.setText(Integer.toString( table.getDraw()));
+            mLost.setText(Integer.toString(table.getLost()));
+            mGoalsFor.setText(Integer.toString(table.getGoalsFor()));
+            mGoalsAgainst.setText(Integer.toString(table.getGoalsAgainst()));
+            mGoalDifference.setText(Integer.toString(table.getGoalDifference()));
+            mPoints.setText(Integer.toString(table.getPoints()));
         }
     }
 }
