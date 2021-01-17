@@ -4,6 +4,9 @@ package com.moringaschool.football_app.models.competition;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Filters {
 
     @SerializedName("plan")

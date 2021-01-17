@@ -15,6 +15,9 @@ import com.moringaschool.football_app.R;
 import com.moringaschool.football_app.TableActivity;
 import com.moringaschool.football_app.models.competition.Competition;
 
+import org.parceler.Parcel;
+import org.parceler.Parcels;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -74,9 +77,8 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
         @Override
         public void onClick(View v) {
             int position = getLayoutPosition();
-            Toast.makeText(mContext, mLeagues.get(position).getName(), Toast.LENGTH_LONG).show();
             Intent intent = new Intent(mContext, TableActivity.class);
-            intent.putExtra("league", mLeagues.get(position));
+            intent.putExtra("league", Parcels.wrap(mLeagues.get(position)));
             mContext.startActivity(intent);
         }
     }

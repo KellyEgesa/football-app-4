@@ -26,7 +26,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    buildTypes.each{
+    buildTypes.each {
         it.buildConfigField 'String', 'FOOTBALL_AUTH_TOKEN', AuthToken
     }
 }
