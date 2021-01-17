@@ -1,13 +1,13 @@
 # FOOTBALL APP
 
-#### A REFERENCE ANDROID APPLICATION THAT SHOWS INFORMATION ABOUT THE BIG SIX FOOTBALL LEAGUES
+#### A REFERENCE ANDROID APPLICATION THAT SHOWS INFORMATION ABOUT THE BIG FOOTBALL LEAGUES
 
 #### By **Bartholomew Kelly Egesa**
 
 ## Description
 
 A user can see all the leagues
-A user can the league table.
+A user can see the league table.
 
 ## Behavior Driven Development
 
