@@ -11,16 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Footballapp">
         <activity
-            android:name=".Table"
+            android:name=".TableActivity"
             android:theme="@style/NoActionBarTheme"></activity>
-        <activity android:name=".LeaguesActivity">
+        <activity android:name=".ui.LeaguesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.football_app.MainActivity"></meta-data>
+                android:value="com.moringaschool.football_app.ui.MainActivity"></meta-data>
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

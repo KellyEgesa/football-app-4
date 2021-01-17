@@ -10,7 +10,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class Table extends AppCompatActivity {
+public class TableActivity extends AppCompatActivity {
     @BindView(R.id.tableName)
     TextView mTableName;
     @BindView(R.id.listView)

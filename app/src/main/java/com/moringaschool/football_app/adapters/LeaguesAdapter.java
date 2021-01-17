@@ -1,20 +1,16 @@
 package com.moringaschool.football_app.adapters;
 
 import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.football_app.R;
-import com.moringaschool.football_app.models.Competition;
-import com.squareup.picasso.Picasso;
+import com.moringaschool.football_app.models.competition.Competition;
 
 import java.util.List;
 

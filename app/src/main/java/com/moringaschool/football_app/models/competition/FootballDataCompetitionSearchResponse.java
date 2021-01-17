@@ -1,5 +1,5 @@
 
-package com.moringaschool.football_app.models;
+package com.moringaschool.football_app.models.competition;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

@@ -1,5 +1,5 @@
 
-package com.moringaschool.football_app.models;
+package com.moringaschool.football_app.models.competition;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

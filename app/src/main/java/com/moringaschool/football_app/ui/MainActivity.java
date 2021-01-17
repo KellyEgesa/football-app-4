@@ -1,4 +1,4 @@
-package com.moringaschool.football_app;
+package com.moringaschool.football_app.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.moringaschool.football_app.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
