@@ -47,6 +47,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
     }
 
     public class TableViewHolder extends RecyclerView.ViewHolder {
+        public Context mContext;
         @BindView(R.id.tableNumber)
         TextView mTableNumber;
         @BindView(R.id.teamName)
@@ -68,14 +69,23 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
         @BindView(R.id.points)
         TextView mPoints;
 
-
         public TableViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            mContext = itemView.getContext();
         }
 
         public void bindTable(Table table) {
-
+            mTableNumber.setText(table.getPosition());
+            mTeamName.setText(table.getTeam().getName());
+            mGamesPlayed.setText(table.getPlayedGames());
+            mWin.setText(table.getWon());
+            mDraw.setText(table.getDraw());
+            mLost.setText(table.getLost());
+            mGoalsFor.setText(table.getGoalsFor());
+            mGoalsAgainst.setText(table.getGoalsAgainst());
+            mGoalDifference.setText(table.getGoalDifference());
+            mPoints.setText(table.getPoints());
         }
     }
 }
