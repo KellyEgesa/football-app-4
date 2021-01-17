@@ -35,7 +35,7 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
     public LeaguesAdapter.LeagueViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.league_card, parent, false);
         LeagueViewHolder viewHolder = new LeagueViewHolder(view);
-        return  viewHolder;
+        return viewHolder;
     }
 
     @Override
@@ -50,8 +50,6 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
     }
 
     public class LeagueViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.leagueEmblem)
-        ImageView mLeagueEmblem;
         @BindView(R.id.leagueName)
         TextView mLeagueName;
         @BindView(R.id.matchDay)
@@ -69,12 +67,7 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
         public void bindLeague(Competition league) {
             mLeagueName.setText(league.getName());
             mCountryOfOrigin.setText("Country Of Origin: " + league.getArea().getName());
-            mMatchDay.setText("Matchday 19 of " + league.getCurrentSeason().getCurrentMatchday());
-            if (league.getEmblemUrl() != null) {
-                Picasso.get().load((Uri) league.getEmblemUrl()).into(mLeagueEmblem);
-            } else if (league.getArea().getEnsignUrl() != null) {
-                Picasso.get().load((Uri) league.getArea().getEnsignUrl()).into(mLeagueEmblem);
-            }
+            mMatchDay.setText("Matchday " + league.getCurrentSeason().getCurrentMatchday());
         }
     }
 

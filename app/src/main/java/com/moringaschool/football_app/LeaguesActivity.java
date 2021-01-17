@@ -1,6 +1,7 @@
 package com.moringaschool.football_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,7 +51,7 @@ public class LeaguesActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
-        mUser.setText(username);
+        mUser.setText("Username: " + username);
 
         FootBallApi client = FootBallClient.listCompetitions();
         Call<FootballDataCompetitionSearchResponse> call = client.listCompetitions("TIER_ONE");
@@ -65,8 +66,10 @@ public class LeaguesActivity extends AppCompatActivity {
                     mRecyclerView.setAdapter(mAdapter);
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(LeaguesActivity.this);
                     mRecyclerView.setLayoutManager(layoutManager);
+                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
+                            ((LinearLayoutManager) layoutManager).getOrientation());
+                    mRecyclerView.addItemDecoration(dividerItemDecoration);
                     mRecyclerView.setHasFixedSize(true);
-
                     showRecyclerLeague();
                 } else {
                     unSuccessfulMessage();
