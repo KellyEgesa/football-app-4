@@ -1,26 +1,24 @@
-package com.moringaschool.football_app;
+package com.moringaschool.football_app.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.moringaschool.football_app.R;
+import com.moringaschool.football_app.adapters.TableAdapter;
 import com.moringaschool.football_app.models.competition.Competition;
 import com.moringaschool.football_app.models.standings.FootballDataStandingSearchResponse;
 import com.moringaschool.football_app.models.standings.Table;
 import com.moringaschool.football_app.network.FootBallApi;
 import com.moringaschool.football_app.network.FootBallClient;
-import com.moringaschool.football_app.ui.LeaguesActivity;
 
-import org.parceler.Parcel;
 import org.parceler.Parcels;
 
 import java.util.List;
