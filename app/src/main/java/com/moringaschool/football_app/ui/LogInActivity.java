@@ -43,7 +43,9 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         }
         if (v == mCreateAccount) {
             Intent intent = new Intent(LogInActivity.this, CreateAccountActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+
         }
     }
 }

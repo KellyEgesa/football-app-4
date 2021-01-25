@@ -46,7 +46,9 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         }
         if (v == mLogIn) {
             Intent intent = new Intent(CreateAccountActivity.this, LogInActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+
         }
     }
 }
