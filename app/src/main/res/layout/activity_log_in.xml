@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
+    android:padding="30dp"
     tools:context=".ui.LogInActivity">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="292dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
         app:cardElevation="20dp"
@@ -35,7 +36,7 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/editTextEmail"
+                android:id="@+id/logInTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -48,7 +49,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/editTextPassword"
+                android:id="@+id/logInTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -60,31 +61,18 @@
                 android:text="Password"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/editTextTextPersonName3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@color/primary_light"
-                android:ems="10"
-                android:fontFamily="@font/alfa_slab_one"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:text="Confirm Password"
-                android:textSize="20sp" />
-
             <Button
-                android:id="@+id/CreateAccountButton"
+                android:id="@+id/logInButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:backgroundTint="@android:color/holo_green_light"
                 android:fontFamily="@font/alfa_slab_one"
-                android:text="Create Account"
+                android:text="Login"
                 android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/logInTextViewCreateAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
