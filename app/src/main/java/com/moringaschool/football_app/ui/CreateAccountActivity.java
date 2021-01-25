@@ -12,8 +12,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.moringaschool.football_app.R;
 
 import butterknife.BindView;
@@ -44,6 +48,8 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_create_account);
         ButterKnife.bind(this);
 
+        mAuth = FirebaseAuth.getInstance();
+
         mCreateAccountButton.setOnClickListener(this);
         mLogIn.setOnClickListener(this);
 
@@ -55,7 +61,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View v) {
         if (v == mCreateAccountButton) {
-            Toast.makeText(CreateAccountActivity.this, "Creating Account", Toast.LENGTH_LONG).show();
+            createUser();
         }
         if (v == mLogIn) {
             Intent intent = new Intent(CreateAccountActivity.this, LogInActivity.class);
@@ -71,12 +77,12 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         progressDialog.setCancelable(false);
     }
 
-    private void createAuthListener(){
+    private void createAuthListener() {
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
-                if(user != null){
+                if (user != null) {
                     Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
@@ -86,7 +92,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         };
     }
 
-    private void createUser(){
+    private void createUser() {
         final String name = mUserName.getText().toString().trim();
         final String email = mUserEmail.getText().toString().trim();
         final String password = mUserPassword.getText().toString().trim();
@@ -94,8 +100,45 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
 
         progressDialog.show();
 
-        mAuth.signInWithEmailAndPassword(email, password){
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    createFirebaseUserProfile(task.getResult().getUser());
+                } else {
+                    Toast.makeText(CreateAccountActivity.this, "Authentication Failed", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
         }
+    }
+
+    private void createFirebaseUserProfile(final FirebaseUser user) {
+        UserProfileChangeRequest userProfileChangeRequest = new UserProfileChangeRequest.Builder()
+                .setDisplayName(mUserName.getText().toString().trim())
+                .build();
+
+        user.updateProfile(userProfileChangeRequest)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+
+                        }
+                    }
+                });
     }
 }
