@@ -5,11 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
-    android:padding="30dp"
-    tools:context=".ui.CreateAccountActivity">
+    tools:context=".ui.LogInActivity">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
+        android:layout_width="292dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
         app:cardElevation="20dp"
@@ -25,31 +24,18 @@
             android:padding="20dp">
 
             <TextView
-                android:id="@+id/createAccountTextView"
+                android:id="@+id/logInTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/alfa_slab_one"
                 android:gravity="center"
-                android:text="Create Account"
+                android:text="Login"
                 android:textColor="@color/primary"
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/createAccountEditTextName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@color/primary_light"
-                android:fontFamily="@font/alfa_slab_one"
-                android:hint="Name"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:text="Name"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/createAccountEditTextEmail"
+                android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -62,7 +48,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/createAccountEditTextPassword"
+                android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -75,7 +61,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/createAccountEditTextConfirmPassword"
+                android:id="@+id/editTextTextPersonName3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -98,7 +84,7 @@
                 android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/createAccountTextViewLogIn"
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

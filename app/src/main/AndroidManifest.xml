@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Footballapp">
-        <activity android:name=".ui.CreateAccount"></activity>
+        <activity android:name=".ui.LogInActivity"></activity>
+        <activity android:name=".ui.CreateAccountActivity" />
         <activity
             android:name=".ui.TableActivity"
             android:theme="@style/NoActionBarTheme" />
