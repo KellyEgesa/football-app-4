@@ -2,6 +2,7 @@ package com.moringaschool.football_app.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,8 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.logInTextViewCreateAccount)
     TextView mCreateAccount;
 
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,18 +37,28 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
         mLogInButton.setOnClickListener(this);
         mCreateAccount.setOnClickListener(this);
+
+        loadingScreen();
     }
 
     @Override
     public void onClick(View v) {
         if (v == mLogInButton) {
             Toast.makeText(LogInActivity.this, "Loggin in", Toast.LENGTH_LONG).show();
+            progressDialog.show();
         }
         if (v == mCreateAccount) {
             Intent intent = new Intent(LogInActivity.this, CreateAccountActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
 
         }
+    }
+
+    private void loadingScreen() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Logging in");
+        progressDialog.setMessage("Authenticating.....");
+        progressDialog.setCancelable(false);
     }
 }

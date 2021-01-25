@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "101872923072",
+    "project_id": "football-app-e2d52",
+    "storage_bucket": "football-app-e2d52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101872923072:android:58607a9e74235c8c869825",
+        "android_client_info": {
+          "package_name": "com.moringaschool.football_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "101872923072-tn42vo8c9a4ssjlhbucdcc1f0t5q38if.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.football_app",
+            "certificate_hash": "abc871d2042b123353ee0496112d34a880c0ca0e"
+          }
+        },
+        {
+          "client_id": "101872923072-psotqasgu3pd5h86h48ti7cd6pn355fj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM7d2daALQ3Sw1kZNjHEP8e82_X3oR2BY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "101872923072-psotqasgu3pd5h86h48ti7cd6pn355fj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
