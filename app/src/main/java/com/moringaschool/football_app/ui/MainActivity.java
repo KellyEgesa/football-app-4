@@ -24,8 +24,6 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.getStarted)
     Button mGetStartedButton;
-    @BindView(R.id.userName)
-    EditText mUserName;
     @BindView(R.id.favouriteLeagues)
     Button mFavouriteLeaguesButton;
 

@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.football_app.Constants;
@@ -84,10 +86,19 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
         public void onClick(View v) {
             int position = getLayoutPosition();
             if (v == mAddToFavouritesButton) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+
                 DatabaseReference leagueReference = FirebaseDatabase
                         .getInstance()
-                        .getReference(Constants.FIREBASE_CHILD_LEAGUES);
-                leagueReference.push().setValue(mLeagues.get(position));
+                        .getReference(Constants.FIREBASE_CHILD_LEAGUES)
+                        .child(uid);
+
+                DatabaseReference pushRef = leagueReference.push();
+                String pushId = pushRef.getKey();
+                mLeagues.get(position).setPushId(pushId);
+                pushRef.setValue(mLeagues.get(position));
+
                 Toast.makeText(mContext, "League saved to favourites", Toast.LENGTH_LONG).show();
             } else {
                 Intent intent = new Intent(mContext, TableActivity.class);

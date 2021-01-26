@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.moringaschool.football_app.Constants;
@@ -42,7 +44,13 @@ public class SavedLeaguesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_leagues);
 
         ButterKnife.bind(this);
-        mLeaguesReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_LEAGUES);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mLeaguesReference = FirebaseDatabase.getInstance()
+                .getReference(Constants.FIREBASE_CHILD_LEAGUES)
+                .child(uid);
         setUpFirebaseAdapter();
     }
 
