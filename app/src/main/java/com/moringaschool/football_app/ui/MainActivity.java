@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button mGetStartedButton;
     @BindView(R.id.userName)
     EditText mUserName;
+    @BindView(R.id.favouriteLeagues)
+    Button mFavouriteLeaguesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         mGetStartedButton.setOnClickListener(this);
+        mFavouriteLeaguesButton.setOnClickListener(this);
     }
 
     @Override
@@ -46,6 +49,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MainActivity.this, "KINDLY ENTER YOUR NAME!!!", Toast.LENGTH_LONG).show();
             }
 
+        }
+        if(v == mFavouriteLeaguesButton){
+            Intent intent = new Intent(MainActivity.this, SavedLeaguesActivity.class);
+            startActivity(intent);
         }
     }
 
