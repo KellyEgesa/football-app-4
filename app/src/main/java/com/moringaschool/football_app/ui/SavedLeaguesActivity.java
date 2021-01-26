@@ -43,10 +43,10 @@ public class SavedLeaguesActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         mLeaguesReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_LEAGUES);
-        setUpFirebase();
+        setUpFirebaseAdapter();
     }
 
-    private void setUpFirebase() {
+    private void setUpFirebaseAdapter() {
         FirebaseRecyclerOptions<Competition> options = new FirebaseRecyclerOptions.Builder<Competition>()
                 .setQuery(mLeaguesReference, Competition.class)
                 .build();
@@ -64,12 +64,13 @@ public class SavedLeaguesActivity extends AppCompatActivity {
                 return new FirebaseLeagueHolder(view);
             }
         };
-        mRecyclerView.setAdapter(mFirebaseAdapter);
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
                 ((LinearLayoutManager) layoutManager).getOrientation());
         mRecyclerView.addItemDecoration(dividerItemDecoration);
+        mRecyclerView.setAdapter(mFirebaseAdapter);
         hideProgressBar();
         showRecyclerLeague();
 
@@ -83,6 +84,20 @@ public class SavedLeaguesActivity extends AppCompatActivity {
     private void showRecyclerLeague() {
         mRecyclerView.setVisibility(View.VISIBLE);
         mLeaguesText.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mFirebaseAdapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mFirebaseAdapter != null) {
+            mFirebaseAdapter.stopListening();
+        }
     }
 
 
