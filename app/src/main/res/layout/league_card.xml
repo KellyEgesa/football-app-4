@@ -48,6 +48,13 @@
                 android:text="Country Of Origin: Brazil"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/addToFavouritesButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/holo_green_light"
+                android:text="Add to favourites" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

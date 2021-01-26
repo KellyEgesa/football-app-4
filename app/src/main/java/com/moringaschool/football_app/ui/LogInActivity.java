@@ -106,6 +106,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
                         if (!task.isSuccessful()) {
                             Toast.makeText(LogInActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
                         }
                     }
                 });

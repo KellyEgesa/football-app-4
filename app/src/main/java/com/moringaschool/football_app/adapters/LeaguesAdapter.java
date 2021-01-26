@@ -5,11 +5,16 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.moringaschool.football_app.Constants;
 import com.moringaschool.football_app.R;
 import com.moringaschool.football_app.ui.TableActivity;
 import com.moringaschool.football_app.models.competition.Competition;
@@ -56,6 +61,8 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
         TextView mMatchDay;
         @BindView(R.id.countryOfOrigin)
         TextView mCountryOfOrigin;
+        @BindView(R.id.addToFavouritesButton)
+        Button mAddToFavouritesButton;
 
         private Context mContext;
 
@@ -70,14 +77,24 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
             mLeagueName.setText(league.getName());
             mCountryOfOrigin.setText("Country Of Origin: " + league.getArea().getName());
             mMatchDay.setText("Matchday " + league.getCurrentSeason().getCurrentMatchday());
+            mAddToFavouritesButton.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
             int position = getLayoutPosition();
-            Intent intent = new Intent(mContext, TableActivity.class);
-            intent.putExtra("league", Parcels.wrap(mLeagues.get(position)));
-            mContext.startActivity(intent);
+            if (v == mAddToFavouritesButton) {
+                DatabaseReference leagueReference = FirebaseDatabase
+                        .getInstance()
+                        .getReference(Constants.FIREBASE_CHILD_LEAGUES);
+                leagueReference.push().setValue(mLeagues.get(position));
+                Toast.makeText(mContext, "League saved to favourites", Toast.LENGTH_LONG).show();
+            } else {
+                Intent intent = new Intent(mContext, TableActivity.class);
+                intent.putExtra("league", Parcels.wrap(mLeagues.get(position)));
+                mContext.startActivity(intent);
+            }
+
         }
     }
 
