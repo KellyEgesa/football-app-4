@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.moringaschool.football_app.Constants;
 import com.moringaschool.football_app.R;
 
 import butterknife.BindView;
@@ -31,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String mUser;
 
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,26 +45,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mGetStartedButton.setOnClickListener(this);
         mFavouriteLeaguesButton.setOnClickListener(this);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    getSupportActionBar().setTitle("Logged in as , " + user.getDisplayName() + "!");
-                    mUser = user.getDisplayName();
+                    mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+                    String savedUser = mSharedPreferences.getString(Constants.PREFERENCES_USER_KEY, null);
+                    if (savedUser == null) {
+                        mUser = user.getDisplayName();
+                    } else {
+                        mUser = savedUser;
+                    }
+                    getSupportActionBar().setTitle("Logged in as " + mUser + "!");
+
                 }
             }
         };
+
+
     }
 
     @Override
     public void onClick(View v) {
         if (v == mGetStartedButton) {
-                Intent intent = new Intent(MainActivity.this, LeaguesActivity.class);
-                intent.putExtra("username", mUser);
-                startActivity(intent);
-                Toast.makeText(MainActivity.this, "Welcome: " + mUser, Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MainActivity.this, LeaguesActivity.class);
+            intent.putExtra("username", mUser);
+            startActivity(intent);
+            Toast.makeText(MainActivity.this, "Welcome: " + mUser, Toast.LENGTH_LONG).show();
         }
         if (v == mFavouriteLeaguesButton) {
             Intent intent = new Intent(MainActivity.this, SavedLeaguesActivity.class);
@@ -104,4 +122,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
+
 }
