@@ -20,6 +20,7 @@ import com.moringaschool.football_app.Constants;
 import com.moringaschool.football_app.R;
 import com.moringaschool.football_app.ui.TableActivity;
 import com.moringaschool.football_app.models.competition.Competition;
+import com.moringaschool.football_app.util.ItemTouchHelperViewHolder;
 
 import org.parceler.Parcels;
 
@@ -28,7 +29,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueViewHolder> {
+public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueViewHolder> implements ItemTouchHelperViewHolder {
     private List<Competition> mLeagues;
     private Context mContext;
 
@@ -50,6 +51,15 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
         holder.bindLeague(mLeagues.get(position));
     }
 
+    @Override
+    public void onItemSelected() {
+
+    }
+
+    @Override
+    public void onItemClear() {
+
+    }
 
     @Override
     public int getItemCount() {
@@ -107,6 +117,8 @@ public class LeaguesAdapter extends RecyclerView.Adapter<LeaguesAdapter.LeagueVi
             }
 
         }
+
+
     }
 
 }
